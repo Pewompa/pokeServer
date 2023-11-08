@@ -27,6 +27,7 @@ config();
   app.use(pokemonRouter);
   app.use(indexRouter);
 
+  app.get('/', (req, res) => res.send('helllo'));
   const pokemonNames = [...shuffledPokemonNames];
   const currentPokemon = pokemonNames.shift();
 
