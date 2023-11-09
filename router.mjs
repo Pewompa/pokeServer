@@ -6,4 +6,6 @@ pokemonRouter.get('/pokemon/:id', getPokemon);
 
 pokemonRouter.post('/pokemon/post', postNewPokemon);
 
+pokemonRouter.get('/teshst', (req, res) => res.send('helllsddso'));
+
 export { pokemonRouter };
