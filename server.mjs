@@ -21,7 +21,7 @@ config();
     })
   );
 
-  const server = createServer(app);
+  // const server = createServer(app);
 
   app.use(express.json());
   app.use(pokemonRouter);
@@ -64,7 +64,7 @@ config();
   });
 
   const port = process.env.PORT || 3001;
-  server.listen(port, () => {
+  app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
   });
 })();
