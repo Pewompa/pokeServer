@@ -15,11 +15,7 @@ config();
 
   const app = express();
   app.use(cors());
-  app.use(
-    cors({
-      origin: 'https://pokedle-psi.vercel.app', // Replace with your Vercel app's URL
-    })
-  );
+  app.use(cors());
 
   // const server = createServer(app);
 
@@ -37,19 +33,16 @@ config();
   const postPokemon = async (name) => {
     try {
       console.log('posting', name);
-      const response = await fetch(
-        `${process.env.API_BASE_URL}/pokemons/post`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-type': 'application/json',
-            Authorization: `Basic ${btoa(`${username}:${password}`)}`,
-          },
-          body: JSON.stringify({
-            name: name,
-          }),
-        }
-      );
+      const response = await fetch(`/pokemons/post`, {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json',
+          Authorization: `Basic ${btoa(`${username}:${password}`)}`,
+        },
+        body: JSON.stringify({
+          name: name,
+        }),
+      });
       const data = await response.json();
       return data;
     } catch (error) {
