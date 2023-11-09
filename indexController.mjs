@@ -19,7 +19,6 @@ async function getIndexes(req, res) {
 
 async function getPokemon(req, res) {
   const pokemon = await indexModel.find();
-  console.log(pokemon[0].indexes);
   try {
     res.status(200).json(pokemon[0].indexes);
   } catch (error) {
@@ -78,7 +77,6 @@ async function getIndexes1() {
     if (array[0].length === 0) {
       // If the array is empty, create a new document with an empty 'indexes' array
       const newDocument = new indexModel();
-      console.log('inside get');
       await newDocument.save();
       return newDocument;
     } else {
@@ -109,7 +107,6 @@ let sharedIndex = {
   index: null,
   time: null,
 };
-console.log(sharedIndex);
 
 const generateRandomPokemonIndex = async () => {
   let sharedTime = sharedIndex.time;

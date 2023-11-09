@@ -15,7 +15,6 @@ config();
 
   const app = express();
   app.use(cors());
-  app.use(cors());
 
   // const server = createServer(app);
 
@@ -32,7 +31,6 @@ config();
 
   const postPokemon = async (name) => {
     try {
-      console.log('posting', name);
       const response = await fetch(`/pokemons/post`, {
         method: 'POST',
         headers: {
@@ -58,6 +56,6 @@ config();
 
   const port = process.env.PORT || 3001;
   app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+    console.log(`Server is rusnning on port ${port}`);
   });
 })();
