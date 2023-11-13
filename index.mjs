@@ -31,7 +31,7 @@ config();
 
   const postPokemon = async (name) => {
     try {
-      const response = await fetch(`/pokemons/post`, {
+      const response = await fetch(`http://localhost:3001/pokemons/post`, {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',
@@ -49,13 +49,13 @@ config();
   };
   postPokemon(currentPokemon);
 
-  cron.schedule('0 0 * * *', async () => {
+  cron.schedule('* * * * *', async () => {
     const currentPokemon = pokemonNames.shift();
     await postPokemon(currentPokemon);
   });
 
   const port = process.env.PORT || 3001;
   app.listen(port, () => {
-    console.log(`Server is rusnning on port ${port}`);
+    console.log(`Server is running on port ${port}`);
   });
 })();
