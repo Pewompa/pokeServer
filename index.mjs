@@ -32,16 +32,19 @@ config();
   const postPokemon = async (name) => {
     console.log(`these are the username and password: ${username} ${password}`);
     try {
-      const response = await fetch(`http://localhost:3001/pokemons/post`, {
-        method: 'POST',
-        headers: {
-          'Content-type': 'application/json',
-          Authorization: `Basic ${btoa(`${username}:${password}`)}`,
-        },
-        body: JSON.stringify({
-          name: name,
-        }),
-      });
+      const response = await fetch(
+        `https://pokedleserver-0110db31efcd.herokuapp.com/pokemon/post`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-type': 'application/json',
+            Authorization: `Basic ${btoa(`${username}:${password}`)}`,
+          },
+          body: JSON.stringify({
+            name: name,
+          }),
+        }
+      );
       const data = await response.json();
       return data;
     } catch (error) {
