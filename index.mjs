@@ -48,7 +48,9 @@ config();
       return console.log('error posting pokemon in index.mjs: ', error);
     }
   };
-  postPokemon(currentPokemon);
+  if (currentPokemon) {
+    postPokemon(currentPokemon);
+  }
   cron.schedule('* * * * *', async () => {
     console.log('croning');
     const currentPokemon = pokemonNames.shift();
