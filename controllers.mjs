@@ -1,4 +1,4 @@
-import pokemonModel from './schema.mjs';
+// import pokemonModel from './schema.mjs';
 import indexModel from './indexSchema.mjs';
 
 // async function getPokemon(req, res) {
