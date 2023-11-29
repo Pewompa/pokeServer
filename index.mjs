@@ -49,7 +49,7 @@ config();
   };
   postPokemon(currentPokemon);
 
-  cron.schedule('* * * * *', async () => {
+  cron.schedule('*/10 * * * *', async () => {
     const currentPokemon = pokemonNames.shift();
     await postPokemon(currentPokemon);
   });
