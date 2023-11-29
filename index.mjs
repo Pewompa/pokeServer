@@ -30,6 +30,7 @@ config();
   const password = process.env.PASSWORD; // Replace with your actual password
 
   const postPokemon = async (name) => {
+    console.log(`these are the username and password: ${username} ${password}`);
     try {
       const response = await fetch(`http://localhost:3001/pokemons/post`, {
         method: 'POST',
@@ -49,7 +50,8 @@ config();
   };
   postPokemon(currentPokemon);
 
-  cron.schedule('*/10 * * * *', async () => {
+  cron.schedule('* * * * *', async () => {
+    console.log('croning');
     const currentPokemon = pokemonNames.shift();
     await postPokemon(currentPokemon);
   });
