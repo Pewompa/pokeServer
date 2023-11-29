@@ -29,6 +29,16 @@ config();
   const username = process.env.USERNAME; // Replace with your actual username
   const password = process.env.PASSWORD; // Replace with your actual password
 
+  cron.schedule('* * * * *', async () => {
+    console.log('croning');
+    const currentPokemon = pokemonNames.shift();
+    await postPokemon(currentPokemon);
+  });
+
+  const port = process.env.PORT || 3001;
+  app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+  });
   const postPokemon = async (name) => {
     console.log(`these are the username and password: ${username} ${password}`);
     try {
@@ -49,17 +59,5 @@ config();
       return console.log('error posting pokemon in index.mjs: ', error);
     }
   };
-
   postPokemon(currentPokemon);
-
-  cron.schedule('* * * * *', async () => {
-    console.log('croning');
-    const currentPokemon = pokemonNames.shift();
-    await postPokemon(currentPokemon);
-  });
-
-  const port = process.env.PORT || 3001;
-  app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-  });
 })();
