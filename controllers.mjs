@@ -42,4 +42,4 @@ async function postNewPokemon(req, res) {
   }
 }
 
-export { getPokemon, postNewPokemon };
+export { postNewPokemon };
