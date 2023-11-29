@@ -49,6 +49,7 @@ config();
     }
   };
   if (currentPokemon) {
+    console.log('posting ', currentPokemon);
     postPokemon(currentPokemon);
   }
   cron.schedule('* * * * *', async () => {
