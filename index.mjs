@@ -26,8 +26,8 @@ config();
   const pokemonNames = [...shuffledPokemonNames];
   const currentPokemon = pokemonNames.shift();
 
-  const username = 'bernatpavon'; // Replace with your actual username
-  const password = 'ioEQ9sz8ZJihkLR5'; // Replace with your actual password
+  const username = process.env.USERNAME; // Replace with your actual username
+  const password = process.env.PASSWORD; // Replace with your actual password
 
   const postPokemon = async (name) => {
     try {
@@ -49,7 +49,7 @@ config();
   };
   postPokemon(currentPokemon);
 
-  cron.schedule('0 0 * * *', async () => {
+  cron.schedule('* * * * *', async () => {
     const currentPokemon = pokemonNames.shift();
     await postPokemon(currentPokemon);
   });
