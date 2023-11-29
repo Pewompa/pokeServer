@@ -33,7 +33,7 @@ config();
     console.log(`these are the username and password: ${username} ${password}`);
     try {
       const response = await fetch(
-        `https://pokedleserver-0110db31efcd.herokuapp.com/indexes/post`,
+        `https://pokedleserver-0110db31efcd.herokuapp.com/pokemon/post`,
         {
           method: 'POST',
           headers: {

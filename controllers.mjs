@@ -1,4 +1,5 @@
 import pokemonModel from './schema.mjs';
+import indexModel from './indexSchema.mjs';
 
 async function getPokemon(req, res) {
   try {
@@ -14,9 +15,8 @@ async function getPokemon(req, res) {
 async function postNewPokemon(req, res) {
   try {
     console.log('inside req.body', req.body);
-    const pokemon = new pokemonModel({
-      name: req.body.name,
-      id: req.body.id,
+    const pokemon = new indexModel({
+      indexes: req.body.indexes,
     });
     await pokemon.save();
     res.status = 201;
