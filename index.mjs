@@ -33,7 +33,7 @@ config();
     console.log(`these are the username and password: ${username} ${password}`);
     try {
       const response = await fetch(
-        `https://pokedleserver-0110db31efcd.herokuapp.com/pokemon/post`,
+        `https://pokedleserver-0110db31efcd.herokuapp.com/indexes/post`,
         {
           method: 'POST',
           headers: {
@@ -41,14 +41,14 @@ config();
             Authorization: `Basic ${btoa(`${username}:${password}`)}`,
           },
           body: JSON.stringify({
-            name: name,
+            indexes: name,
           }),
         }
       );
       const data = await response.json();
       return data;
     } catch (error) {
-      return console.log('error posting pokemon: ', error);
+      return console.log('error posting pokemon in index.mjs: ', error);
     }
   };
   postPokemon(currentPokemon);
