@@ -50,7 +50,7 @@ config();
             'Content-type': 'application/json',
             Authorization: `Basic ${btoa(`${username}:${password}`)}`,
           },
-          body: { indexes: name },
+          body: JSON.stringify({ indexes: String(name) }),
         }
       );
       const data = await response.json();
