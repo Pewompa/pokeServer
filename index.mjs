@@ -40,9 +40,7 @@ config();
             'Content-type': 'application/json',
             Authorization: `Basic ${btoa(`${username}:${password}`)}`,
           },
-          body: JSON.stringify({
-            indexes: name,
-          }),
+          body: { indexes: name },
         }
       );
       const data = await response.json();
@@ -51,9 +49,8 @@ config();
       return console.log('error posting pokemon in index.mjs: ', error);
     }
   };
-  if (currentPokemon) {
-    postPokemon(currentPokemon);
-  }
+
+  postPokemon(currentPokemon);
 
   cron.schedule('* * * * *', async () => {
     console.log('croning');
