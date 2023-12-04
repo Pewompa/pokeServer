@@ -34,7 +34,7 @@ config();
       const response = await fetch(
         `https://pokedleserver-0110db31efcd.herokuapp.com/pokemon/post`,
         {
-          method: 'POST',
+          method: 'PUT',
           headers: {
             'Content-type': 'application/json',
             Authorization: `Basic ${btoa(`${username}:${password}`)}`,
