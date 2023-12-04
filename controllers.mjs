@@ -29,7 +29,7 @@ import indexModel from './indexSchema.mjs';
 async function postNewPokemon(req, res) {
   try {
     console.log('inside req.body', req.body);
-    const query = { indexes: req.body.indexes };
+    const filter = { indexes: req.body.indexes };
     const update = { indexes: req.body.indexes }; // You can update other fields here if needed
     const options = { upsert: true, new: true, setDefaultsOnInsert: true };
     // const options = { upsert: true, new: true, setDefaultsOnInsert: true };
