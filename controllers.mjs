@@ -35,7 +35,7 @@ async function postNewPokemon(req, res) {
 
     // const pokemon = await indexModel.findOneAndUpdate(query, update, options);
     const pokemon = new indexModel({
-      indexes: req.body.name,
+      indexes: req.body.indexes,
     });
     await pokemon.save();
 
