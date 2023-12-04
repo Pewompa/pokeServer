@@ -34,7 +34,7 @@ config();
     console.log(`these are the username and password: ${username} ${password}`);
     try {
       const deleteFilter = { indexes: lastPokemon };
-      const result = await indexModel.deleteOne(deleteFilter);
+      await indexModel.deleteOne(deleteFilter);
       const response = await fetch(
         `https://pokedleserver-0110db31efcd.herokuapp.com/pokemon/post`,
         {
