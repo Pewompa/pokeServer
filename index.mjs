@@ -68,7 +68,7 @@ config();
   //   }
   // };
   // checkIndexes();
-  cron.schedule('* * * * *', async () => {
+  cron.schedule('0 0 * * *', async () => {
     console.log('croning');
     const currentPokemon = pokemonNames.shift();
     await postPokemon(currentPokemon);
