@@ -51,10 +51,10 @@ config();
       return console.log('error posting pokemon in index.mjs: ', error);
     }
   };
-  if (currentPokemon) {
-    console.log('posting ', currentPokemon);
-    postPokemon(currentPokemon);
-  }
+  // if (currentPokemon) {
+  //   console.log('posting ', currentPokemon);
+  //   postPokemon(currentPokemon);
+  // }
   // const checkIndexes = async () => {
   //   try {
   //     const indexes = await indexModel.collection.getIndexes();
