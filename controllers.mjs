@@ -32,10 +32,9 @@ async function postNewPokemon(req, res) {
     const filter = { indexes: req.body.indexes };
     const update = { indexes: req.body.indexes }; // You can update other fields here if needed
     const options = { upsert: true, new: true, setDefaultsOnInsert: true };
-    // const options = { upsert: true, new: true, setDefaultsOnInsert: true };
 
     const pokemon = await indexModel.findOneAndUpdate(filter, update, options);
-    // const pokemon = await indexModel.findOneAndUpdate(query, update, options);
+
     // const pokemon = new indexModel({
     //   indexes: req.body.indexes,
     // });

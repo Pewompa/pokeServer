@@ -4,6 +4,6 @@ const pokemonRouter = express.Router();
 
 // pokemonRouter.get('/pokemon/:id', getPokemon);
 
-pokemonRouter.post('/pokemon/post', postNewPokemon);
+pokemonRouter.put('/pokemon/post', postNewPokemon);
 
 export { pokemonRouter };
