@@ -33,8 +33,7 @@ config();
   const postPokemon = async (name) => {
     console.log(`these are the username and password: ${username} ${password}`);
     try {
-      const deleteFilter = { indexes: lastPokemon };
-      await indexModel.deleteOne(deleteFilter);
+      await indexModel.collection.drop();
       const response = await fetch(
         `https://pokedleserver-0110db31efcd.herokuapp.com/pokemon/post`,
         {
