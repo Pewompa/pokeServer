@@ -32,6 +32,8 @@ config();
   const postPokemon = async (name) => {
     console.log(`these are the username and password: ${username} ${password}`);
     try {
+      await indexModel.collection.dropIndex('indexes_1');
+      console.log('Index "names_1" dropped successfully');
       const response = await fetch(
         `https://pokedleserver-0110db31efcd.herokuapp.com/pokemon/post`,
         {
