@@ -6,5 +6,5 @@ const indexSchema = new mongoose.Schema({
     required: true,
   },
 });
-const indexModel = mongoose.model('index', indexSchema);
+const indexModel = mongoose.model('indexes', indexSchema);
 export default indexModel;
