@@ -7,6 +7,7 @@ import { config } from 'dotenv';
 import cron from 'node-cron';
 import { shuffledPokemonNames } from './pokemonList.mjs';
 import cors from 'cors';
+import indexModel from './indexSchema.mjs';
 
 config();
 
@@ -52,6 +53,19 @@ config();
     console.log('posting ', currentPokemon);
     postPokemon(currentPokemon);
   }
+  // const checkIndexes = async () => {
+  //   try {
+  //     const indexes = await indexModel.collection.getIndexes();
+
+  //     console.log('Indexes for the collection:');
+  //     console.log(indexes);
+  //     await indexModel.collection.dropIndex('names_1');
+  //     console.log('Index "names_1" dropped successfully');
+  //   } catch (error) {
+  //     console.error('Error checking indexes:', error);
+  //   }
+  // };
+  // checkIndexes();
   cron.schedule('* * * * *', async () => {
     console.log('croning');
     const currentPokemon = pokemonNames.shift();
