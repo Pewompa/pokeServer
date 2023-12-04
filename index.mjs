@@ -25,6 +25,7 @@ config();
 
   app.get('/', (req, res) => res.send('helllo'));
   const pokemonNames = [...shuffledPokemonNames];
+  const lastPokemon = pokemonNames[0];
   const currentPokemon = pokemonNames.shift();
 
   const username = process.env.USERNAME; // Replace with your actual username
@@ -32,6 +33,8 @@ config();
   const postPokemon = async (name) => {
     console.log(`these are the username and password: ${username} ${password}`);
     try {
+      const deleteFilter = { indexes: lastPokemon };
+      const result = await indexModel.deleteOne(deleteFilter);
       const response = await fetch(
         `https://pokedleserver-0110db31efcd.herokuapp.com/pokemon/post`,
         {

@@ -14,8 +14,6 @@ import indexModel from './indexSchema.mjs';
 
 async function postNewPokemon(req, res) {
   try {
-    const deleteFilter = { indexes: req.body.indexes };
-    await indexModel.deleteOne(deleteFilter);
     console.log('inside req.body', req.body);
     const pokemon = new indexModel({
       indexes: req.body.indexes,
